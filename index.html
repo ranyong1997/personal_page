@@ -1,0 +1,267 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 冉勇
+ * @Date: 2021-11-18 13:04:40
+ * @LastEditTime: 2021-11-18 22:43:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人介绍页</title>
+
+    
+</head>
+
+<body class="is-preload">
+    <!-- 加载页面 -->
+    <link rel="stylesheet" href="#">
+    <div class="loader">
+        <div class="container">
+            <h1>💫</h1>
+            <p>晃动手机</p>
+        </div>
+    </div>
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <section id="main">
+            <span style="display:flex;
+            position: fixed;
+            top: 2em;
+            right:2em;
+            opacity: 0.65;
+            font-size: 0.8em;" v-show="backButton">
+            <button class="button small" @click="screenShot" id="screenshot">
+                    保持网页截图
+            </button>
+            </span>
+            <!-- 欢迎界面和自我介绍 -->
+            <header v-show="Contacts">
+                <span class="avatar">
+                    <img src="https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211113231018.jpeg" alt="" style="width: 122px;height: 122px">
+                </span>
+                <h1>Untitled</h1>
+                <transition-grop name="fade">
+                    <div v-show="defaults" key="text">
+                        <p>Lorem</p>
+                        <p>在你的一生中，你可能会有这样的经历。从一般人的角度来看，他们应该知道逃犯的不同之处。</p>
+                        <button
+                            class="button small fit"
+                            @click="showAbout"
+                            v-bind:display="onTransition==1"
+                        >
+                            Click!
+                        </button>
+                    </div>
+                    <div
+                        v-for="item in contacts"
+                        v-if="item.show"
+                        key="item.name"
+                        v-html="item.content"
+                    >
+                    </div>
+                    <button
+                        class="button small"
+                        key="button"
+                        @click="hideContact(true)"
+                        style="opacity:0.55"
+                        v-show="backButton"
+                    >
+                        返回
+                    </button>
+                </transition-grop>
+            </header>
+            <hr />
+            <footer v-show="Contacts">
+                <ul class="icons">
+                    <li v-for="item in contacts">
+                        <a @click="showContact(item.name)" :class="item.icon">
+                            {{ item.desc }}
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+
+            <!-- 页面 -->
+            <header v-show="info">
+                <transition-grop name="fade">
+                    <h1 key="title">{{title}}</h1>
+                    <p key="text" v-for="text in texts">
+                        {{ text }}
+                    </p>
+                    <div
+                        v-html="html"
+                        key="html"
+                    >
+                    </div>
+                    <img
+                        v-bind:src="img"
+                        key="img"
+                        style="width:95%;height:auto"
+                        v-for="img in imgs"
+                    />
+                    <div key="buttons">
+                        <button
+                            class="btn small"
+                            v-bind:display="(nowPage < startPage || onTransition == 1)"
+                            @click="navigate(-1)"
+                        >
+                        上一页
+                        </button>
+                        <button
+                            class="btn small"
+                            v-bind:display="(nowPage >= endPage - 2 || onTransition == 1)"
+                            @click="navigate(-1)"
+                        >
+                        下一页
+                        </button>
+                    </div>
+                    <hr key="br" />
+                    <button
+                        @click="returnTocontact"
+                        key="button"
+                        class="button fit"
+                        v-bind:disabled="onTransition == 1"
+                    >
+                    返回
+                    </button>
+                </transition-grop>
+            </header>
+        </section>
+        <!-- 页脚 -->
+        <footer id="footer"></footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        if("addEventListener" in window) {
+            window.addEventListener("load",function() {
+                document.body.className = document.body.className.replace(
+                    /\bis-preload\b/,
+                    ""
+                );
+            });
+            document.body.className += navigate.userAgent.match(/(MSIE|rv:11\.0)/)
+            ? " is-ie"
+            : "";
+        }
+    </script>
+    <!-- Vuejs -->
+    <script language="JavaScript">
+        var mainsec = new Vue({
+            el: "#main",
+            data: {
+                title: "",
+                html: "",
+                texts: [],
+                imgs: [],
+
+                startPage: 1,
+                endPage: 3,
+
+                defaults: 1,
+                Contacts: 1,
+                info: 0,
+                deg: 0,
+                backButton: false,
+
+                contacts: [
+                    {
+                        name: "Wechat",
+                        icon: "icon brands fa-weixin",
+                        desc: "微信",
+                        content: "<img src= '#' class='qr' />",
+                        show: false,
+                        jump: false,
+                    },
+                    {
+                        name: "QQ",
+                        icon: "icon brands fa-qq",
+                        desc: "QQ",
+                        content: "<img src= '#' class='qr' /><h2>QQ:1311518086</h2>",
+                        show: false,
+                        jump: false,
+                    },
+                    {
+                        name: "Github",
+                        icon: "icon brands fa-github",
+                        desc: "QQ",
+                        content: "https://github.com/ranyong1997",
+                        show: false,
+                        jump: true,
+                    },
+                ],
+
+                // 页码
+                page: [
+                    {
+                        title: "Page 1",
+                        texts: [
+                            "在你的一生中，你可能会有这样的经历。从一般人的角度来看，他们应该知道逃犯的不同之处."
+                        ],
+                        html: "",
+                        imgs: ["https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211113231622.jpeg"],
+                    },
+                    {
+                        title: "Page 2",
+                        texts: [
+                            "Some text",
+                            "And some text"
+                        ],
+                        html: "<h2>HTML Support</h2>",
+                        imgs: [""],
+                    },
+                    {
+                        title: "Page 3",
+                        texts: ["Multi images"],
+                        html: "",
+                        imgs: ["https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211113231621.jpeg"],
+                    },
+                    {
+                        title: "Page 4",
+                        texts: ["Another Demo"],
+                        html: '<a onclick="todonate() style="color:#fff; background-color: #f0a1a8; border-radius: 0.3em; padding: .2em; cursor: pointer;"><<u>Donate!</u>></a><br /><p style="color:#ccc; font-size:0.7em;">Last updated: Apr. 14, 2021<p>',
+                        imgs: ["https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211113231621.jpeg"],
+                    },
+                    {
+                        title: "Eastera egg page!",
+                        texts: ["Can only access with ? page=#"],
+                        html:"<a href='https://github.com/ranyong1997' target='_blank'>Ranyong</a>",
+                    }
+                ],
+                nowPage: 0,
+                onTransition: 0,
+            },
+            methods: {
+                showContact: function(name) {
+                    let num = 0;
+                    for(let i = 0; i < this.contacts.length; i++) {
+                        if(this.contacts[i].name == name) {
+                            num = i;
+                            break;
+                        }
+                    }
+                    if (this.contacts[num].jump == true) {
+                        window.open(this.contacts[num].content);
+                        return;
+                    }
+                    this.hideContact(false);
+                    this.defaults = 0;
+                    clearTimeout(this.time);
+                    this.timer = setTimeout(() => {
+                        this.contacts[num].show = true;
+                        this.backButton = true;
+                    }, 500);
+                },
+
+            }
+        })
+    </script>
+</body>
+
+</html>
