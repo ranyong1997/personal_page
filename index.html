@@ -3,7 +3,7 @@
  * @version:
  * @Author: 冉勇
  * @Date: 2021-11-18 13:04:40
- * @LastEditTime: 2021-11-19 23:48:24
+ * @LastEditTime: 2021-11-20 22:52:21
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +12,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人介绍页</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="asserts/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
     <script src="js/vue.min.js" language="JavaScript"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/html2canvas.min.js" async="async"></script>
     <style>
+        /* 设置照片圆角 */
         img {
         border-radius: 10px;
         }
@@ -26,10 +27,10 @@
 
 <body class="is-preload">
     <!-- Loader -->
-    <link rel="stylesheet" href="assets/css/loader.css" />
+    <link rel="stylesheet" href="asserts/css/loader.css" />
     <div class="loader">
         <div class="container">
-            <h1>🍊</h1>
+            <h1>🍎</h1>
             <p>摇匀</p>
             <p>再喝</p>
         </div>
@@ -130,7 +131,7 @@
         var mainsec = new Vue({
             el: "#main",
             data: {
-                title: "你好", // The title of one page
+                title: "", // The title of one page
                 html: "", // HTML text of one page
                 texts: [], // Pure texts of one page
                 imgs: [], // Image url of a page's images
@@ -141,6 +142,10 @@
                 info: 0, // If to show designed pages
                 deg: 0, // Main section rotate deg
                 backButton: false,
+                /**
+                 * show为true,会显示出来
+                 * jump为true，会直接跳转链接
+                 **/
                 contacts: [
                     {
                         name: "Wechat",
@@ -155,7 +160,7 @@
                         icon: "icon brands fa-qq",
                         desc: "QQ",
                         content:
-                            "<img src='images/demoQR.png' class='qr' /><h2>QQ:XXXXXX</h2>",
+                            "<img src='images/demoQR.png' class='qr' /><h2>QQ:1311518086</h2>",
                         show: false,
                         jump: false,
                     },

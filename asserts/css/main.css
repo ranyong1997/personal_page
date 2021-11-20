@@ -3,71 +3,71 @@
  * @version: 
  * @Author: 冉勇
  * @Date: 2021-11-18 22:44:18
- * @LastEditTime: 2021-11-19 23:53:05
+ * @LastEditTime: 2021-11-20 22:50:37
  */
 
 @import url(fontawesome-all.min.css);
 @import url(google-font-local.css);
 
 html{
-    /* 设置元素滚动条的颜色 */
-    scrollbar-color: transparent transparent;
-    /* 不显示滚动条，但是元素依然可以滚动 */
-    scrollbar-width: none;
+	/* 设置元素滚动条的颜色 */
+	scrollbar-color: transparent transparent;
+	/* 不显示滚动条，但是元素依然可以滚动 */
+	scrollbar-width: none;
 }
 
 .avatar ~ h1 {
-    /* 指定一个元素的字体 */
-    font-family: "思源黑体 CN";
-    /* 指定字体大小 */
-    font-weight: 700;
-    /* 设置字母间距 */
-    letter-spacing: 0.15em;
-    /* 背景图像 */
-    background-image:
-    /*
-    创建一个表示两种或多种颜色线性渐变的图片
-    渐变轴为 90 度
-    */
-    linear-gradient(90deg,
-    #f0a1a8 0%,
-    #f09c5a 25%,
-    #83cbac 50%,
-    #f09c5a 75%,
-    #f0a1a8 100%);
-    /* 指定背景绘制区域 */
-    background-clip: text;
-    /* 背景保留在前景内容中(文字) */
-    -webkit-background-clip: text;
-    /* 指定填充色 */
-    -webkit-text-fill-color: transparent;
-    /* 指定背景图像的大小 */
-    background-size: 200%;
-    /*
-    将动画与 div 元素绑定
-    linear：线性
-    infinite：无限次
-    */
-    animation: title-flow 2.5s linear infinite;
+	/* 指定一个元素的字体 */
+	font-family: "思源黑体 CN";
+	/* 指定字体大小 */
+	font-weight: 700;
+	/* 设置字母间距 */
+	letter-spacing: 0.15em;
+	/* 背景图像 */
+	background-image:
+	/*
+	创建一个表示两种或多种颜色线性渐变的图片
+	渐变轴为 90 度
+	*/
+	linear-gradient(90deg,
+	#f0a1a8 0%,
+	#f09c5a 25%,
+	#83cbac 50%,
+	#f09c5a 75%,
+	#f0a1a8 100%);
+	/* 指定背景绘制区域 */
+	background-clip: text;
+	/* 背景保留在前景内容中(文字) */
+	-webkit-background-clip: text;
+	/* 指定填充色 */
+	-webkit-text-fill-color: transparent;
+	/* 指定背景图像的大小 */
+	background-size: 200%;
+	/*
+	将动画与 div 元素绑定
+	linear：线性
+	infinite：无限次
+	*/
+	animation: title-flow 2.5s linear infinite;
 }
 
- /* background-position:设置背景图像的起始位置 */
+/* background-position:设置背景图像的起始位置 */
 @keyframes title-flow {
-    0% {
-        background-position: 0%,
-    }
-    100% {
-        background-position: 200%,
-    }
+	0% {
+		background-position: 0%,
+	}
+	100% {
+		background-position: 200%,
+	}
 }
 #main p {
-    /* 文本两端对齐 */
-    text-align: justify;
+	/* 文本两端对齐 */
+	text-align: justify;
 }
 
 #main p::first-letter{
-    /* 元素的左边距 */
-    margin-left: 2em;
+	/* 元素的左边距 */
+	margin-left: 2em;
 }
 
 /* 最新CSS3样式重置 */
@@ -82,48 +82,48 @@ html, body, div, span, applet, object,
 	canvas, details, embed, figure, figcaption,
 	footer, header, hgroup, menu, nav, output, ruby,
 	section, summary, time, mark, audio, video {
-        /* 元素的四个边距 */
-        margin: 0;
-        /* 元素的填充 */
-        padding: 0;
-        /* 四个边框样式 */
-        border: 0;
-        /* 字体大小 */
-        font-size: 100%;
-        /* 所有元素的字体保持一致 */
-        font: inherit;
-        /* 元素的垂直对齐方式 */
-        vertical-align: baseline;
-    }
+		/* 元素的四个边距 */
+		margin: 0;
+		/* 元素的填充 */
+		padding: 0;
+		/* 四个边框样式 */
+		border: 0;
+		/* 字体大小 */
+		font-size: 100%;
+		/* 所有元素的字体保持一致 */
+		font: inherit;
+		/* 元素的垂直对齐方式 */
+		vertical-align: baseline;
+	}
 
 article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section{
-        /*
-        段落生成一个行内距
-        block：元素前后会带有换行符
-        */
-        display: block;
-    }
-    body {
-        /* 行高 */
-        line-height: 1;
-    }
-    ol, ul {
-        /* 所有列表属性 */
-        list-style: none;
-    }
-    blockquote, q {
-        /*
-        引号类型
-        none：不产生任何引号
-         */
-        quotes: none;
-    }
+		/*
+		段落生成一个行内距
+		block：元素前后会带有换行符
+		*/
+		display: block;
+	}
+	body {
+		/* 行高 */
+		line-height: 1;
+	}
+	ol, ul {
+		/* 所有列表属性 */
+		list-style: none;
+	}
+	blockquote, q {
+		/*
+		引号类型
+		none：不产生任何引号
+		*/
+		quotes: none;
+	}
 		blockquote:before, blockquote:after, q:before, q:after {
 			content: '';
 			content: none;
 		}
-    table {
+	table {
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
