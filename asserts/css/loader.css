@@ -1,8 +1,3 @@
-/*
-  See this animation on Codepen.io
-  https://codepen.io/Orangii/pen/vYgWXJZ
-*/
-
 :root {
   --loader-scale: 0.6;
   --loader-width: 15em;
@@ -29,7 +24,7 @@
   position: absolute;
   top: calc(50% - 10em);
   transform: scale(var(--loader-scale), var(--loader-scale));
-  
+
   z-index: -999;
   opacity: 0;
 }

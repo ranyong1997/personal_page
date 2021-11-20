@@ -3,7 +3,7 @@
  * @version:
  * @Author: 冉勇
  * @Date: 2021-11-18 13:04:40
- * @LastEditTime: 2021-11-20 22:52:21
+ * @LastEditTime: 2021-11-20 23:47:49
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -39,19 +39,6 @@
     <div id="wrapper">
         <!-- Main -->
         <section id="main">
-            <!-- Screenshot Button -->
-        <span style="
-            display: flex;
-            position: fixed;
-            top: 2em;
-            right: 2em;
-            opacity: 0.65;
-            font-size: 0.8em;"
-            v-show="backButton">
-            <button class="button small" @click="screenShot" id="screenshot">
-                    保存网页截图
-            </button>
-        </span>
             <!-- Welcome Message and Contacts -->
             <header v-show="Contacts">
                 <span class="avatar">
@@ -160,7 +147,7 @@
                         icon: "icon brands fa-qq",
                         desc: "QQ",
                         content:
-                            "<img src='images/demoQR.png' class='qr' /><h2>QQ:1311518086</h2>",
+                            "<img src='images/demoQR.png' class='qr' /><h2>QQ:<a style='color:#fff; background-color:#f0a1a8;' href='https://qm.qq.com/cgi-bin/qm/qr?k=eXTNr8LNXRoQqmh4x5Iz2zA3v561B8aB&noverify=0' target='_blank' >1311518086</a></h2>",
                         show: false,
                         jump: false,
                     },
@@ -288,21 +275,6 @@
                         setTimeout("mainsec.loadPage()", 400);
                     }
                 },
-                screenShot: function () {
-                    var button = document.getElementById("screenshot");
-                    button.disabled = true;
-                    button.innerHTML = "截图中…";
-                    html2canvas(document.body).then((canvas) => {
-                        var w = window.open();
-                        w.document.title = "保存截图";
-                        var i = w.document.createElement("img");
-                        w.document.body.appendChild(i);
-                        i.src = canvas.toDataURL("image/jpg");
-                        w.alert("长按图片或直接保存图片即可");
-                        button.innerHTML = "保存网页截图";
-                        button.disabled = false;
-                    });
-                },
             },
             mounted: function () {
                 this.loadPage();
@@ -354,30 +326,7 @@
             if (
                 getQueryVariable("showContacts") ||
                 getQueryVariable("showcontacts")
-            ) {
-                var url;
-                var browser = navigator.userAgent.toLowerCase();
-                if (mainsec.info == 1) {
-                    mainsec.returnToContact();
-                }
-                if (browser.match(/MicroMessenger/i) == "micromessenger") {
-                    //微信浏览器
-                    url = "https://u.wechat.com/EO3JtzoXctOZXiAG8tvYHuI";
-                    setTimeout(function () {
-                        mainsec.showContact("Wechat");
-                    }, 1500);
-                } else if (
-                    browser.indexOf(" qq") != -1 &&
-                    browser.indexOf("mqqbrowser") != -1
-                ) {
-                    //qq内置浏览器
-                    url =
-                        "https://qm.qq.com/cgi-bin/qm/qr?k=OZm0covTGqrELIwI0XKV6LxlKsCcLIsm";
-                    setTimeout(function () {
-                        mainsec.showContact("QQ");
-                    }, 1500);
-                }
-            }
+            )
             FirstTriggered = false;
         }
     </script>

@@ -3,7 +3,7 @@
  * @version: 
  * @Author: 冉勇
  * @Date: 2021-11-18 22:44:18
- * @LastEditTime: 2021-11-20 22:50:37
+ * @LastEditTime: 2021-11-20 23:00:14
  */
 
 @import url(fontawesome-all.min.css);
@@ -244,12 +244,10 @@ article, aside, details, figcaption, figure,
 		}
 
 		@media screen and (max-width: 480px) {
-
 			body, input, select, textarea {
 				font-size: 10pt;
 				line-height: 1.75;
 			}
-
 		}
 
 	a {
