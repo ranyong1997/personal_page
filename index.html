@@ -3,7 +3,7 @@
  * @version:
  * @Author: 冉勇
  * @Date: 2021-11-18 13:04:40
- * @LastEditTime: 2021-11-20 23:47:49
+ * @LastEditTime: 2021-11-21 14:50:37
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -42,21 +42,24 @@
             <!-- Welcome Message and Contacts -->
             <header v-show="Contacts">
                 <span class="avatar">
-                    <img src="https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211113231019.jpeg" alt="主页logo" style="width: 122px; height: 122px" />
+                    <img src="./images/leimu.jpeg" alt="头像" style="width: 122px; height: 122px" />
                 </span>
-                <h1>关于我</h1>
+                <h1>冉某某</h1>
                 <transition-group name="fade">
                     <div v-show="defaults" key="text">
-                        <p>About me</p>
+                        <p>我不知道你从哪找到我的，但是你确实找到我了。</p>
                         <p>
-                            在他的一生中，
-                            他发现了他所没有的指责。
-                            我们应该以合理的理由谴责我们所犯的错误
+                            如果你想知道更多关于我的东西……
                         </p>
                         <button class="button small fit" @click="showAbout" v-bind:disabled="onTransition==1">
                             点我!
                         </button>
+                        <div class="highlight">
+                            <span>博客新开业啦！确定不来康康吗？</span><br>
+                            <a href="http://sakur.daydayupran.top/">🌸博客</a>
+                        </div>
                     </div>
+
                     <div v-for="item in contacts" v-if="item.show" key="item.name" v-html="item.content"></div>
                     <button class="button small" key="button" @click="hideContact(true)" style="opacity: 0.55"
                         v-show="backButton">
@@ -123,7 +126,7 @@
                 texts: [], // Pure texts of one page
                 imgs: [], // Image url of a page's images
                 startPage: 1, // First page of the website
-                endPage: 3, // The last page of the website
+                endPage: 4, // The last page of the website
                 defaults: 1, // Show welcome message
                 Contacts: 1, // Detect if to show contacts
                 info: 0, // If to show designed pages
@@ -138,7 +141,7 @@
                         name: "Wechat",
                         icon: "icon brands fa-weixin",
                         desc: "微信",
-                        content: "<img src='images/demoQR.png' class='qr' />",
+                        content: "<img src='https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211111101355.jpg' class='qr' /><h2>微信号:<a style='color:#fff; background-color:#f0a1a8;'>RanY_Luck</a></h2>",
                         show: false,
                         jump: false,
                     },
@@ -147,7 +150,7 @@
                         icon: "icon brands fa-qq",
                         desc: "QQ",
                         content:
-                            "<img src='images/demoQR.png' class='qr' /><h2>QQ:<a style='color:#fff; background-color:#f0a1a8;' href='https://qm.qq.com/cgi-bin/qm/qr?k=eXTNr8LNXRoQqmh4x5Iz2zA3v561B8aB&noverify=0' target='_blank' >1311518086</a></h2>",
+                            "<img src='https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211111101354.jpg' class='qr' /><h2>QQ:<a style='color:#fff; background-color:#f0a1a8;' href='https://qm.qq.com/cgi-bin/qm/qr?k=eXTNr8LNXRoQqmh4x5Iz2zA3v561B8aB&noverify=0' target='_blank' >1311518086</a></h2>",
                         show: false,
                         jump: false,
                     },
@@ -163,35 +166,40 @@
                 //Pages content
                 page: [
                     {
-                        title: "Page 1",
+                        title: "我是烂好人",
                         texts: [
-                            "我的祝福和祝福坐在一起。在他的一生中，他发现了他所没有的指责。我们应该以合理的理由谴责我们所犯的错误。",
+                            "ᴵ ᵐᵉᵗ ʸᵒᵘ ˡᵃᵗᵉ / ᵇᵘᵗ ᴵ ʷⁱˡˡ ᵃᶜᶜᵒᵐᵖᵃⁿʸ ʸᵒᵘ ᶠᵒʳ ᵃ ˡᵒⁿᵍ ᵗⁱᵐᵉ.","我遇见你很晚/可是我会陪伴你很久。",
                         ],
-                        html: "",
+                        html: "<div>↓新博客现在启程啦~↓</br><a href='http://sakur.daydayupran.top/' style='text-decoration: underline;'>🌸博客</a></div>",
                         imgs: ["images/bg.jpg"],
                     },
                     {
-                        title: "Page 2",
-                        texts: ["Some text", "And some text"],
-                        html: "<h2>HTML Support</h2>",
-                        imgs: [""],
+                        title: "有很多的爱好",
+                        texts: [
+                            "喜欢摄影",
+                            "健身",
+                            "写公众号",
+                            "周末没事就是CRUD"
+                        ],
+                        html: "<div><span>更多请点击：</span><a href='https://user.qzone.qq.com/1311518086/infocenter?qz_referer=qqtips' target='_blank' style='color:#f0a1a8;'>我的相册</a></div>",
+                        imgs: ["images/photo.jpg","images/fitness.jpg","images/writing.jpg"],
                     },
                     {
-                        title: "Page 3",
-                        texts: ["Multi images"],
-                        imgs: ["https://raw.githubusercontent.com/ranyong1997/image_collect/main/img/20211113231621.jpeg", "images/demoQR.png"],
+                        title: "开发的项目",
+                        texts: ["标题还未想好"],
+                        imgs: ["https://camo.githubusercontent.com/167a8e05f4b3a937f0387c2163352d54a59fabc71abecd8020133cda49603d76/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170693f757365726e616d653d72616e796f6e67313939372673686f775f69636f6e733d74727565267468656d653d73796e746877617665"],
                         html: "",
                     },
                     {
-                        title: "Page 4",
-                        texts: ["Another Demo"],
-                        html: '<a onclick="todonate()" style="color:#fff; background-color:#f0a1a8; border-radius: 0.3em; padding: 0.2em; cursor: pointer;"><<u>Donate!</u>></a><br /><p style="color:#ccc; font-size:0.7em;">Last updated: Apr. 14, 2021<p>',
-                        imgs: [""],
+                        title: "写在最后",
+                        texts: ["The END"],
+                        html: '<span><p>如果你想让我加点什么或者想了解更多，可以点下面的返回按钮，然后通过各种方式联系我哦~</p><p>Last updated: Nov 21, 2021<p></span>',
+                        imgs: ["images/guimie.jpeg"],
                     },
                     {
-                        title: "Eastern egg page!",
+                        title: "last page",
                         texts: ["Can only access with ?page=#"],
-                        html: "<a href='https://github.com/ranyong1997' target='_blank'>Origin project</a>",
+                        html: "",
                     },
                 ],
                 nowPage: 0, // Pointer to current page
